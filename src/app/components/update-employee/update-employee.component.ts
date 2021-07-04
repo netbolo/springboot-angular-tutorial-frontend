@@ -10,7 +10,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class UpdateEmployeeComponent implements OnInit {
 
-  id: number;
+  id!: number;
   employee: Employee = new Employee();
 
   constructor(private employeeService: EmployeeService,
@@ -25,13 +25,13 @@ export class UpdateEmployeeComponent implements OnInit {
     }, error => console.log(error));
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.employeeService.updateEmployee(this.id, this.employee).subscribe(data => {
       this.goToEmployeeList();
     }, error => console.log(error));
   }
 
-  goToEmployeeList() {
+  goToEmployeeList(): void {
     this.router.navigate(['/employees']);
   }
 

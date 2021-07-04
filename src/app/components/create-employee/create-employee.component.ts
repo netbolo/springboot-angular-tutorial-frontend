@@ -10,7 +10,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee();
+  employee!: Employee;
 
   constructor(private employeeService: EmployeeService,
               private router: Router) {
@@ -19,7 +19,7 @@ export class CreateEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveEmployee() {
+  saveEmployee(): void {
     this.employeeService.createEmployee(this.employee).subscribe(data => {
         console.log(data);
         this.goToEmployeeList();
@@ -27,11 +27,11 @@ export class CreateEmployeeComponent implements OnInit {
       error => console.log(error));
   }
 
-  goToEmployeeList() {
+  goToEmployeeList(): void {
     this.router.navigate(['/employees']);
   }
 
-  onSubmit() {
+  onSubmit(): void {
     console.log(this.employee);
     this.saveEmployee();
   }

@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  id: number;
-  employee: Employee;
+  id!: number;
+  employee!: Employee;
 
   constructor(private route: ActivatedRoute,
               private employeeService: EmployeeService) {
